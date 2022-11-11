@@ -1,4 +1,10 @@
+# word documents
 *.tmp
 *.~lock.*
+
+# volume directories from docker containers
 volume*
+
+# python environments
 venv
+__pycache__
