@@ -1,0 +1,29 @@
+version: '2'
+
+networks:
+  my-network:
+services:
+  openldap:
+    container_name: openldap
+    image: osixia/openldap:1.3.0
+    ports:
+      - '389:389'
+    environment:
+      - LDAP_ORGANISATION="FHH"
+      - LDAP_DOMAIN=ffh.de
+      - LDAP_BASE_DN=dc=ffh,dc=de
+      - LDAP_ADMIN_PASSWORD=admin
+    volumes:
+      - './volume_openldap:/etc/ldap/slapd.d'
+ 
+
+  phpLDAPadmin:
+    container_name: phpLDAPadmin
+    image: osixia/phpldapadmin:0.9.0 
+    ports:
+      - '8080:443'
+    environment:
+      - PHPLDAPADMIN_LDAP_HOSTS=openldap
+volumes:
+  openldap_data:
+    driver: local

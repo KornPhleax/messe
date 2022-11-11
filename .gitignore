@@ -1,1 +1,4 @@
 *.tmp
+*.~lock.*
+volume*
+venv
