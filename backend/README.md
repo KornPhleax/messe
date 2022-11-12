@@ -46,7 +46,7 @@ To start the flask API install all requirements in the provided file like this:
 
 and export all needed environment vars:
 
-`export LDAP_URL=ldap://openldap:389 && export LDAP_BASE_DN=dc=ffh,dc=de && export LDAP_BIND_USER=admin && LDAP_BIND_PW=admin`
+`export LDAP_URL=ldap://localhost:389 && export LDAP_BASE_DN=dc=ffh,dc=de && export LDAP_BIND_USER=admin && LDAP_BIND_PW=admin`
 
 and start the server with `python -m api.app`
 
