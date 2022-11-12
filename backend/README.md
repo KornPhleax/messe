@@ -4,11 +4,11 @@ Docker Containers:
 2. phpldapadmin (osixia/phpldapadmin:0.9.0)
 3. Python Flask Backend (built via Dockerfile in this repo)
 
-## Docker Container
+## Docker Containers
 The Docker Containers are responsible for hosting openldap and phpldapadmin which gets use by the python Flask Backend REST API. 
 The python application is hosted in its own python container built with `docker-compose up -d` 
 
-## Python Flask Backend local setup for development
+## Python Flask Backend
 This ist the REST API implemented in Flask.
 It allows for checking the health via the /health route, using the /authenticate_user endpoint a user can be authenticated via sending username and password in this json format:
 
