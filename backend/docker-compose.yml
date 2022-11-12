@@ -26,6 +26,7 @@ services:
       - PHPLDAPADMIN_LDAP_HOSTS=openldap
 
   app:
+    container_name: backend
     build: .
     ports:
       - 8080:80

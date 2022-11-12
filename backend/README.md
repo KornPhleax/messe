@@ -13,7 +13,7 @@ Using the /authenticate_user endpoint a user can be authenticated via sending us
 `{"user":"givenname surname","password":"<password>" }`
 
 
-## Setup
+## Development Setup
 You need:
 - docker installed 
 - python installed

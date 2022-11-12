@@ -2,7 +2,7 @@
 # encoding: utf-8
 import json as JSON
 from flask import Flask, redirect, request
-from app.ldap import LDAP
+from api.ldap import LDAP
 import os
 
 LDAP_URL = os.environ['LDAP_URL']

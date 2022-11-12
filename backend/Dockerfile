@@ -1,4 +1,3 @@
-
 FROM python:3.11.0
 
 RUN apt-get update
@@ -16,10 +15,10 @@ RUN useradd --no-create-home nginx
 RUN rm /etc/nginx/sites-enabled/default
 RUN rm -r /root/.cache
 
-COPY nginx.conf /etc/nginx/
-COPY flask-site-nginx.conf /etc/nginx/conf.d/
-COPY uwsgi.ini /etc/uwsgi/
-COPY supervisord.conf /etc/
+COPY webserver-config/nginx.conf /etc/nginx/
+COPY webserver-config/flask-site-nginx.conf /etc/nginx/conf.d/
+COPY webserver-config/uwsgi.ini /etc/uwsgi/
+COPY webserver-config/supervisord.conf /etc/
 
 COPY / /project
 
