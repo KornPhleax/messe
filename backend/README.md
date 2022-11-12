@@ -4,7 +4,7 @@
 
 ## Docker Container
 The Docker Container is responsible for hosting openldap and phpldapadmin, this is used by the python Flask Backend REST API. 
-The python application should probably also be hosted inside its own docker image, **feature?**
+The python application is hosted in its own python container built on `docker-compose up -d` 
 
 ## Python Flask Backend local setup for development
 This ist the REST API implemented in Flask.
