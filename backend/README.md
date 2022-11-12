@@ -41,7 +41,13 @@ There you could import your previously saved backup or create new groups and use
 Now we need a virtual environment for python to install its dependencies, execute `python -m venv ./venv` now switch into it with `source ./venv/bin/activate`.
 
 To start the flask API install all requirements in the provided file like this:
+
 `pip install -r requirements.txt`
-and start the server with `python main.py`
+
+and export all needed environment vars:
+
+`export LDAP_URL=ldap://openldap:389 && export LDAP_BASE_DN=dc=ffh,dc=de && export LDAP_BIND_USER=admin && LDAP_BIND_PW=admin`
+
+and start the server with `python -m api.app`
 
 Good Luck!
