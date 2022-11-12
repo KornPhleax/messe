@@ -24,9 +24,12 @@ You need:
 Execute the provided `docker-compose.yml` via `docker-compose up -d` to start openldap, phpldapadmin and the backend. 
 It should be reachable at 
 
-`http://localhost:8080`, 
-phpldapadmin is reachable at 
+`http://localhost:8080`,
+
+phpldapadmin is reachable at
+
 `https://localhost:8081` **HTTPS!**
+
 you should be able to login with the default credentials:
 
 `cn=admin,dc=ffh,dc=de`
