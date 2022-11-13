@@ -1,4 +1,4 @@
-const checkbox = document.querySelector('.my-form input[type="checkbox"]');
+const checkbox = document.querySelector('.my-form input[id="terms"]');
 const btns = document.querySelectorAll(".my-form button");
 
 checkbox.addEventListener("change", function() {
@@ -7,3 +7,7 @@ checkbox.addEventListener("change", function() {
     checked ? (btn.disabled = false) : (btn.disabled = true);
   }
 });
+
+function clicklogin(target) { // Target refers to the clicked element
+  location.href='login.html';
+};

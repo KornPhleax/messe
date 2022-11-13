@@ -1,14 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
 
-/* RESET RULES
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 :root {
   --white: #afafaf;
   --red: #e31b23;
   --bodyColor: #292a2b;
-  --borderFormEls: hsl(0, 0%, 10%);
-  --bgFormEls: hsl(0, 0%, 14%);
-  --bgFormElsFocus: hsl(0, 7%, 20%);
+  --borderFormEls: hsl(0, 0%, 13%);
+  --bgFormEls: hsl(0, 0%, 18%);
+  --bgFormElsFocus: hsl(0, 0%, 26%);
 }
 
 * {
@@ -39,14 +38,10 @@ select {
   appearance: none;
 }
 
-/* Remove native arrow on IE */
 select::-ms-expand {
   display: none;
 }
 
-/*Remove dotted outline from selected option on Firefox*/
-/*https://stackoverflow.com/questions/3773430/remove-outline-from-select-box-in-ff/18853002#18853002*/
-/*We use !important to override the color set for the select on line 99*/
 select:-moz-focusring {
   color: transparent !important;
   text-shadow: 0 0 0 var(--white);
@@ -74,10 +69,16 @@ body {
 }
 
 
-/* FORM ELEMENTS
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
 .my-form h1 {
+  margin-bottom: 0.5rem;
+}
+
+.my-form h2 {
   margin-bottom: 1.5rem;
+}
+
+.my-form h3 {
+  margin-bottom: 1rem;
 }
 
 .my-form li,
@@ -105,7 +106,6 @@ body {
 
 .my-form ::placeholder {
   color: inherit;
-  /*Fix opacity issue on Firefox*/
   opacity: 1;
 }
 
@@ -145,8 +145,6 @@ body {
 }
 
 
-/* FORM BTNS
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
 .my-form .required-msg {
   display: none;
   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/asterisk.svg)
@@ -188,8 +186,7 @@ body {
 }
 
 
-/* CUSTOM CHECKBOX
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 .my-form input[type="checkbox"] {
   position: absolute;
   left: -9999px;
@@ -231,8 +228,6 @@ body {
 }
 
 
-/* FOOTER
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
 footer {
   font-size: 1rem;
   text-align: right;
@@ -248,8 +243,6 @@ footer span {
 }
 
 
-/* MQ
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
 @media screen and (min-width: 600px) {
   .my-form .grid {
     display: grid;
@@ -261,6 +254,13 @@ footer span {
   }
 
   .my-form .grid-3 {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+
+  .my-form .grid-4 {
     grid-template-columns: auto auto auto;
     align-items: center;
   }

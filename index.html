@@ -9,52 +9,68 @@
 </head>
 
 <body>
-
 <form class="my-form">
+  <button class="login-btn btn-grid"  onClick="javascript:clicklogin(this);">login</button>
   <div class="container">
-    <h1>Get in touch!</h1>
+    <h1>Lust auf mehr ? <h1>
+    <h2> Jetzt für den Newsletter registireren!</h2>
     <ul>
       <li>
-        <select>
-          <option selected disabled>-- Please choose an option --</option>
-          <option>Request Quote</option>
-          <option>Send Resume</option>
-          <option>Other</option>      
-        </select>
-      </li>
-      <li>
         <div class="grid grid-2">
-          <input type="text" placeholder="Name" required>  
-          <input type="text" placeholder="Surname" required>
+          <input type="text" placeholder="Vorname" required>  
+          <input type="text" placeholder="Nachname" required>
+          <input type="text" placeholder="Straße und Hausnummer" required>
+          <input type="text" placeholder="PLZ" required>
+          <input type="text" placeholder="Ort" required>
+
         </div>
       </li>
       <li>
         <div class="grid grid-2">
           <input type="email" placeholder="Email" required>  
-          <input type="tel" placeholder="Phone">
+          <input type="tel" placeholder="Telefon">
         </div>
-      </li>    
-      <li>
-        <textarea placeholder="Message"></textarea>
-      </li>   
+      </li>
+
+      <h3>Wovon möchtest du mehr erfahren ?</h3> 
+      <div class="grid grid-3">
+        <input type="checkbox" id="kameras">
+        <label for="kameras">Kameras</label>     
+        
+        <input type="checkbox" id="fernseher">
+        <label for="fernseher">Fernseher</label></li>
+
+        <input type="checkbox" id="smartphones">
+        <label for="smartphones">Smartphones</label>
+
+        <input type="checkbox" id="drucker">
+        <label for="drucker">Drucker</label>
+
+        <input type="checkbox" id="monitore">
+        <label for="monitore">Monitore</label></li>
+
+        <input type="checkbox" id="notebooks">
+        <label for="notebooks">Notebooks</label>
+        </div>
+
       <li>
         <input type="checkbox" id="terms">
-        <label for="terms">I have read and agreed with <a href="">the terms and conditions.</a></label>
+        <label for="terms">Ich habe die <a href="https://loremipsum.io/">allgemeinen Geschäftsbedingungen und Datenschutzhinweise</a> gelesen</label>
       </li>  
       <li>
-        <div class="grid grid-3">
-          <div class="required-msg">REQUIRED FIELDS</div>
+        <div class="grid grid-4">
+          <div class="required-msg">Benötigte Felder</div>
           <button class="btn-grid" type="submit" disabled>
             <span class="back">
               <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/email-icon.svg" alt="">
             </span>
-            <span class="front">SUBMIT</span>
+            <span class="front">SENDEN</span>
           </button>
           <button class="btn-grid" type="reset" disabled>
             <span class="back">
               <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/eraser-icon.svg" alt="">
             </span>
-            <span class="front">RESET</span>
+            <span class="front">ZURÜCKSETZTEN</span>
           </button> 
         </div>
       </li>    
@@ -62,10 +78,6 @@
   </div>
 </form>
 <footer>
-  <div class="container">
-    <small>Made with <span>❤</span> by <a href="http://georgemartsoukos.com/" target="_blank">George Martsoukos</a>
-    </small>
-  </div>
 </footer>
 
 
