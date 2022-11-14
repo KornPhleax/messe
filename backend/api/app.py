@@ -2,10 +2,16 @@
 # encoding: utf-8
 import json as JSON
 from flask import Flask, redirect, request
-from ldap import LDAP
+from api.ldap import LDAP
+import os
+
+LDAP_URL = os.environ['LDAP_URL']
+LDAP_BASE_DN = os.environ['LDAP_BASE_DN']
+LDAP_BIND_USER = os.environ['LDAP_BIND_USER']
+LDAP_BIND_PW = os.environ['LDAP_BIND_PW']
 
 
-ldap = LDAP("ldap://127.0.0.1:389", "dc=ffh,dc=de")
+ldap = LDAP(f"ldap://{LDAP_URL}:389", LDAP_BASE_DN, LDAP_BIND_USER, LDAP_BIND_PW)
 app = Flask(__name__)
 
 
@@ -34,5 +40,5 @@ def authenticate_user():
     else:
         return "Content-Type not supported!"
 
-
-app.run()
+if __name__ == "__main__":
+    app.run()
