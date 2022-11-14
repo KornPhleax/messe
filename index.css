@@ -4,8 +4,9 @@
 :root {
   --white: #afafaf;
   --red: #e31b23;
-  --bodyColor: #292a2b;
-  --borderFormEls: hsl(0, 0%, 13%);
+  --blue: #1a3969;;
+  --bodyColor: #1c1b1b;
+  --borderFormEls: #302d2d;
   --bgFormEls: hsl(0, 0%, 18%);
   --bgFormElsFocus: hsl(0, 0%, 26%);
 }
@@ -27,12 +28,14 @@ textarea,
 button {
   font-family: inherit;
   font-size: 100%;
+  border-radius: 4px;
 }
 
 button,
 label {
   cursor: pointer;
 }
+
 
 select {
   appearance: none;
@@ -113,9 +116,29 @@ body {
 .my-form input:focus,
 .my-form textarea:focus,
 .my-form button:enabled:hover,
-.my-form button:focus,
-.my-form input[type="checkbox"]:focus + label {
+.my-form button:focus {
   background: var(--bgFormElsFocus);
+}
+
+.login-btn {
+  margin-right: 2rem;
+  margin-top: 1rem;
+  margin-left:auto;
+  display: block;
+  font-weight: bold;
+  line-height: 1rem;
+  width: 8rem;
+  padding: 10px 18px;
+  font-size: 15px;
+  background: #1a3969;
+  border: none;
+  border-radius: 4px;
+  color: #f4f4f4;
+  transition: all 0.2s ease;
+}
+
+.login-btn:enabled:hover {
+  opacity: 0.9;
 }
 
 .my-form select:focus,
@@ -131,25 +154,9 @@ body {
   background-size: 15px 15px;
 }
 
-.my-form *:required {
-  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/asterisk.svg);  
-}
-
-.my-form select {
-  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/down.svg);
-}
-
 .my-form *:disabled {
   cursor: default;
   filter: blur(2px);
-}
-
-
-.my-form .required-msg {
-  display: none;
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/asterisk.svg)
-    no-repeat center left / 15px 15px;
-  padding-left: 20px;
 }
 
 .my-form .btn-grid {
@@ -214,7 +221,7 @@ body {
 }
 
 .my-form input[type="checkbox"]:checked + label::before {
-  background: var(--red);
+  background: var(--blue);
 }
 
 .my-form input[type="checkbox"]:checked + label::after {
