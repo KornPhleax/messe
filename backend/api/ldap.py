@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# encoding: utf-8
 from ldap3 import Server, Connection, Tls, ALL, SUBTREE
 from ldap3.core.exceptions import LDAPException, LDAPBindError
 import ssl
