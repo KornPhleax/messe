@@ -8,3 +8,6 @@ volume*
 # python environments
 venv
 __pycache__
+
+# secret files
+run.sh
