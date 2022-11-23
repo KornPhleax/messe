@@ -46,6 +46,8 @@ services:
       - REDIS_URL=redis
       - REDIS_PORT=6379
       - REDIS_PW=3ec7kJVE76jEVDVtjdyJVtyvJDty
+    volumes:
+      - './volume_backend/:/project/'
 
 volumes:
   openldap_data:

@@ -1,6 +1,6 @@
 import secrets
 import redis
-import json as json 
+import json as JSON
 import time
 
 class Redis:
@@ -13,15 +13,16 @@ class Redis:
 		self.length = length
 
 	def create_session(self, username):
-		token_url, token = Token.create_token(username, self.ttl, self.length)
+		token_url, token = Token.create(username, self.ttl, self.length)
 		self.redis_db.set(token_url, token)
-		return token_url, self.ttl
+		return token_url
 
 	def verify_session(self, token_url):
-		token = self.redis_db.get(token_url)
+		redis_obj = self.redis_db.get(token_url)
+		token = JSON.loads(redis_obj) if redis_obj is not None else None
 		return token if token is not None and token['ts_expired'] > time.time() else False
 
 class Token:
-	def create_token(username, ttl = 30, length = 20):
+	def create(username, ttl = 30, length = 20):
 		token_url =  secrets.token_urlsafe(length)
-		return token_url, json.dumps({"user": username, "ts_created": time.time(), "ts_expired": time.time() + (ttl * 60)})
+		return token_url, JSON.dumps({"user": username, "ts_created": time.time(), "ts_expired": time.time() + (ttl * 60)})

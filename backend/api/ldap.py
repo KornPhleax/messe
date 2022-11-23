@@ -21,7 +21,7 @@ class LDAP:
                 user=f"{object},{self.root_dn}",
                 password=password,
                 auto_bind=True,
-            )
+            ).user
         except (LDAPBindError) as e:
             return False, e
 
