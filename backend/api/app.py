@@ -53,9 +53,9 @@ def authenticate_user():
 
 @app.route("/get_all_users")
 def get_all_users():
-    content_type = request.headers.get("Content-Type")
+    content_type = request.headers.get("Content-Type", default="")
     if content_type == "application/json":
-        token = request.headers['Token'] if 'Token' in request.headers else None
+        token = request.headers.get('Token', default="")
         if redis.verify_session(token):
             return JSON.dumps(database.get_all_items())
         else:
@@ -73,3 +73,4 @@ def get_all_users():
 
 if __name__ == "__main__":
     app.run()
+
