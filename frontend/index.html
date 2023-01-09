@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+<button class="login-btn"  onClick="javascript:clicklogin(this);">LOGIN</button>
+<form class="my-form">
+  <div class="container">
+    <h1>Lust auf mehr ? <h1>
+    <h2> Jetzt für den Newsletter registrieren!</h2>
+    <ul>
+      <li>
+        <div class="grid grid-2">
+          <input type="text" placeholder="* Vorname" required>
+          <input type="text" placeholder="* Nachname" required>
+          <input type="text" placeholder="* Straße und Hausnummer" required>
+          <input type="text" placeholder="* PLZ" required>
+          <input type="text" placeholder="* Ort" required>
+
+        </div>
+      </li>
+      <li>
+        <div class="grid grid-2">
+          <input type="email" placeholder="* Email" required>  
+          <input type="tel" placeholder="Telefon">
+        </div>
+      </li>
+
+      <h3>Wovon möchtest du mehr erfahren ?</h3> 
+      <div class="grid grid-3">
+        <input type="checkbox" id="kameras">
+        <label for="kameras">Kameras</label>     
+        
+        <input type="checkbox" id="fernseher">
+        <label for="fernseher">Fernseher</label></li>
+
+        <input type="checkbox" id="smartphones">
+        <label for="smartphones">Smartphones</label>
+
+        <input type="checkbox" id="drucker">
+        <label for="drucker">Drucker</label>
+
+        <input type="checkbox" id="monitore">
+        <label for="monitore">Monitore</label></li>
+
+        <input type="checkbox" id="notebooks">
+        <label for="notebooks">Notebooks</label>
+        </div>
+
+      <li>
+        <input type="checkbox" id="terms">
+        <label for="terms">Ich habe die <a href="https://loremipsum.io/">allgemeinen Geschäftsbedingungen und Datenschutzhinweise</a> gelesen</label>
+      </li>  
+      <li>
+        <div class="grid grid-4">
+          <div class="required-msg">* Benötigte Felder</div>
+          <button class="btn-grid" type="submit" disabled>
+            <span class="back">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/email-icon.svg" alt="">
+            </span>
+            <span class="front">SENDEN</span>
+          </button>
+          <button class="btn-grid" type="reset" disabled>
+            <span class="back">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/eraser-icon.svg" alt="">
+            </span>
+            <span class="front">ZURÜCKSETZTEN</span>
+          </button> 
+        </div>
+      </li>    
+    </ul>
+  </div>
+</form>
+<footer>
+</footer>
+
+
+<script src="forms.js"></script> 
+
+</body>
+
+</html>
