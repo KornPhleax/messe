@@ -1,5 +1,8 @@
 # word documents
 *.tmp
+
+# nodejs
+node_modules
 *.~lock.*
 
 # volume directories from docker containers
