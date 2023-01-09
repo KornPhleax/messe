@@ -1,0 +1,54 @@
+version: '2'
+
+services:
+  openldap:
+    container_name: openldap
+    image: osixia/openldap:1.3.0
+    ports:
+      - '389:389'
+      - '636:363'
+    environment:
+      - LDAP_ORGANISATION="FHH"
+      - LDAP_DOMAIN=ffh.de
+      - LDAP_BASE_DN=dc=ffh,dc=de
+      - LDAP_ADMIN_PASSWORD=admin
+    volumes:
+      - './volume_openldap/slapd:/etc/ldap/slapd.d'
+      - './volume_openldap/ldap:/var/lib/ldap'
+ 
+
+  phpLDAPadmin:
+    container_name: phpLDAPadmin
+    image: osixia/phpldapadmin:0.9.0 
+    ports:
+      - '8081:443'
+    environment:
+      - PHPLDAPADMIN_LDAP_HOSTS=openldap
+
+  redis:
+    container_name: redis
+    image: redis:6.2-alpine
+    restart: unless-stopped
+    ports:
+      - '6379:6379'
+    command: redis-server --save 20 1 --loglevel warning --requirepass 3ec7kJVE76jEVDVtjdyJVtyvJDty
+
+  app:
+    container_name: backend
+    build: .
+    ports:
+      - 8080:80
+    environment:
+      - LDAP_URL=openldap
+      - LDAP_BASE_DN=dc=ffh,dc=de
+      - LDAP_BIND_USER=admin
+      - LDAP_BIND_PW=admin
+      - REDIS_URL=redis
+      - REDIS_PORT=6379
+      - REDIS_PW=3ec7kJVE76jEVDVtjdyJVtyvJDty
+    volumes:
+      - './volume_backend/:/project/'
+
+volumes:
+  openldap_data:
+    driver: local

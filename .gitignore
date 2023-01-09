@@ -1,2 +1,17 @@
+# word documents
 *.tmp
+
+# nodejs
 node_modules
+*.~lock.*
+
+# volume directories from docker containers
+volume*
+
+# python environments
+venv
+__pycache__
+
+# secret files
+run.sh
+data.json
