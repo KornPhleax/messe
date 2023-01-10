@@ -9,6 +9,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^21.2.3"
+    "electron": "^21.3.3"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.0"
   }
 }
