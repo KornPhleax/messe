@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
 *,
 *:before,
 *:after {
@@ -79,3 +80,46 @@ button:focus {
 body {
     background: #1c1b1b;
 }
+
+.back-btn {
+	margin-right: 2rem;
+	margin-top: 1rem;
+	margin-left:auto;
+	display: block;
+	font-weight: bold;
+	line-height: 1rem;
+	width: 8rem;
+	padding: 10px 18px;
+	font-size: 15px;
+    font-family: "Segoe UI", sans-serif;
+	background: #404040;
+	border: none;
+	border-radius: 4px;
+	color: #f4f4f4;
+	transition: all 0.2s ease;
+  }
+
+  .back-btn:enabled:hover {
+	opacity: 0.9;
+  }
+
+
+  .login-btn {
+	margin-top: 1rem;
+    margin: 0 auto;
+	display: block;
+	font-weight: bold;
+	line-height: 1rem;
+	width: 8rem;
+	padding: 10px 18px;
+	font-size: 15px;
+	background: #1a3969;
+	border: none;
+	border-radius: 4px;
+	color: #f4f4f4;
+	transition: all 0.2s ease;
+  }
+
+  .login-btn:enabled:hover {
+	opacity: 0.9;
+  }

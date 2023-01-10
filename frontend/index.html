@@ -9,47 +9,50 @@
 </head>
 
 <body>
-<button class="login-btn"  onClick="javascript:clicklogin(this);">LOGIN</button>
-<form class="my-form">
+
+
+<button class="login-btn" onClick="javascript:clicklogin(this);">LOGIN</button>
+
+<form class="my-form" action='javascript:location.href = "danke.html"'>
   <div class="container">
     <h1>Lust auf mehr ? <h1>
-    <h2> Jetzt für den Newsletter registrieren!</h2>
+    <h2>Jetzt für den Newsletter registrieren!</h2>
     <ul>
       <li>
         <div class="grid grid-2">
-          <input type="text" placeholder="* Vorname" required>
-          <input type="text" placeholder="* Nachname" required>
-          <input type="text" placeholder="* Straße und Hausnummer" required>
-          <input type="text" placeholder="* PLZ" required>
-          <input type="text" placeholder="* Ort" required>
+          <input type="text" placeholder="* Vorname" required id="vorname" name="Vorname">
+          <input type="text" placeholder="* Nachname" required id="name" name="Name">
+          <input type="text" placeholder="* Straße und Hausnummer" required id="Strasse" name="Strasse">
+          <input type="text" placeholder="* PLZ" required id="plz" name="PLZ">
+          <input type="text" placeholder="* Ort" required id="ort" name="Ort">
 
         </div>
       </li>
       <li>
         <div class="grid grid-2">
-          <input type="email" placeholder="* Email" required>  
-          <input type="tel" placeholder="Telefon">
+          <input type="email" placeholder="* Email" required id="email" name="Email">  
+          <input type="tel" placeholder="Telefon" id="tel" name="Telefon">
         </div>
       </li>
 
       <h3>Wovon möchtest du mehr erfahren ?</h3> 
       <div class="grid grid-3">
-        <input type="checkbox" id="kameras">
+        <input type="checkbox" id="kameras" name="Kameras">
         <label for="kameras">Kameras</label>     
         
-        <input type="checkbox" id="fernseher">
+        <input type="checkbox" id="fernseher" name="Fersnseher">
         <label for="fernseher">Fernseher</label></li>
 
-        <input type="checkbox" id="smartphones">
+        <input type="checkbox" id="smartphones" name="Smartphones">
         <label for="smartphones">Smartphones</label>
 
-        <input type="checkbox" id="drucker">
+        <input type="checkbox" id="drucker" name="Drucker">
         <label for="drucker">Drucker</label>
 
-        <input type="checkbox" id="monitore">
+        <input type="checkbox" id="monitore" name="Monitore">
         <label for="monitore">Monitore</label></li>
 
-        <input type="checkbox" id="notebooks">
+        <input type="checkbox" id="notebooks" name="Notebooks">
         <label for="notebooks">Notebooks</label>
         </div>
 
@@ -60,7 +63,7 @@
       <li>
         <div class="grid grid-4">
           <div class="required-msg">* Benötigte Felder</div>
-          <button class="btn-grid" type="submit" disabled>
+          <button class="btn-grid" type="submit" id="btn-send" disabled>
             <span class="back">
               <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/email-icon.svg" alt="">
             </span>
