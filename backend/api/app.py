@@ -1,11 +1,15 @@
 #!/usr/bin/env python
 # encoding: utf-8
-import json as JSON
-from flask import Flask, redirect, request
-from api.ldap import LDAP
-from api.redis_session import Redis 
-from api.database import Database
 import os
+import json as JSON
+from api.ldap import LDAP
+from api.database import Database
+from api.redis_session import Redis 
+from flask import Flask, redirect, request
+
+'''
+this file contains the flask api endpoints and logic
+'''
 
 LDAP_URL = os.environ['LDAP_URL']
 LDAP_BASE_DN = os.environ['LDAP_BASE_DN']
@@ -32,7 +36,9 @@ def index():
 def health():
     return JSON.dumps({"result": str(ldap.health())})
 
-
+'''
+takes an json formated user and password and returns token if correct
+'''
 @app.route("/authenticate_user", methods=["POST"])
 def authenticate_user():
     content_type = request.headers.get("Content-Type")
@@ -49,8 +55,34 @@ def authenticate_user():
             }
         )
     else:
-        return "Content-Type not supported!", 415
+        return  JSON.dumps({
+                    "result": False,
+                    "message": 'Content-Type not supported!'
+                }),415
 
+
+'''
+deletes the given token from the database
+'''
+@app.route("/logout")
+def logout():
+    token = request.headers.get('Token', default="")
+    if redis.delete_session(token):
+        return JSON.dumps(
+            {
+                "result": True,
+            }
+        ),204
+    else:
+        return JSON.dumps({
+                "result": False,
+                "message": 'No Token sent in Header! You need to login to logout ;)'
+            }),400
+
+
+'''
+returns all users as json if supplied token is valid
+'''
 @app.route("/get_all_users")
 def get_all_users():
     content_type = request.headers.get("Content-Type", default="")
@@ -70,7 +102,24 @@ def get_all_users():
             }),415
 
 
+'''
+saves the json encoded contact information in the database
+'''
+@app.route("/add_person", methods=["POST"])
+def add_person():
+    content_type = request.headers.get("Content-Type")
+    if content_type == "application/json":
+        json = request.json
+        database.add_item(json)
+        return JSON.dumps({
+                "result": True,
+                "message": 'User was created'
+            }),201
+    else:
+        return JSON.dumps({
+                "result": False,
+                "message": 'Content-Type not supported!'
+            }),415
 
 if __name__ == "__main__":
     app.run()
-
