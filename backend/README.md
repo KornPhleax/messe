@@ -2,20 +2,21 @@
 Docker Containers:
 1. openldap (osixia/openldap:1.3.0)
 2. phpldapadmin (osixia/phpldapadmin:0.9.0)
-3. Python Flask Backend (built via Dockerfile in this repo)
+3. redis (redis:6.2-alpine)
+4. Python Flask Backend (built via Dockerfile in this repo)
 
 ## Docker Containers
-The Docker Containers are responsible for hosting openldap and phpldapadmin which gets use by the python Flask Backend REST API. 
-The python application is hosted in its own python container built with `docker-compose up -d` 
+The Docker Containers are responsible for hosting redis, openldap and phpldapadmin which gets use by the python Flask Backend REST API. 
+The python application is hosted in its own python container built with `docker-compose up -d --build` 
 
 ## Python Flask Backend
-This ist the REST API implemented in Flask.
-It allows for checking the health via the /health route, using the /authenticate_user endpoint a user can be authenticated via sending username and password in this json format:
+This is the REST API implemented in Flask.
+It allows for checking the health via the /health route, using the /authenticate_user endpoint a user can be authenticated via sending username (first letter of givenname and complete surname) and password in this json format:
 
-`{"user":"givenname surname","password":"<password>" }`
+`{"user":"<username>","password":"<password>" }`
 
 
-## Development Setup
+## Installation
 You need:
 - docker installed 
 - python installed
@@ -38,7 +39,9 @@ you should be able to login with the default credentials:
 
 There you could import your previously saved backup or create new groups and users.
 
-Now we need a virtual environment for python to install its dependencies, execute `python -m venv ./venv` now switch into it with `source ./venv/bin/activate`.
+### Development Setup
+
+We need a virtual environment for python to install its dependencies, execute `python -m venv ./venv` now switch into it with `source ./venv/bin/activate`.
 
 To start the flask API install all requirements in the provided file like this:
 
@@ -46,8 +49,8 @@ To start the flask API install all requirements in the provided file like this:
 
 and export all needed environment vars:
 
-`export LDAP_URL=ldap://localhost:389 && export LDAP_BASE_DN=dc=ffh,dc=de && export LDAP_BIND_USER=admin && LDAP_BIND_PW=admin`
+`export LDAP_URL=localhost && export LDAP_BASE_DN=dc=ffh,dc=de && export LDAP_BIND_USER=admin && export LDAP_BIND_PW=admin && export REDIS_URL=localhost && export REDIS_PORT=6379 && export REDIS_PW=3ec7kJVE76jEVDVtjdyJVtyvJDty`
 
-and start the server with `python -m api.app`
+and start the server with `python -m api.wsgi`
 
 Good Luck!
