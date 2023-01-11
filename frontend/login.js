@@ -12,7 +12,7 @@
     console.log(JSON.stringify(body))
     
     // Try to login
-    fetch("http://localhost:5000/authenticate_user", {
+    fetch("https://test.familie-michels.de/authenticate_user", {
       method: "post",
       body: JSON.stringify(body),
       headers: { "Content-Type": "application/json" }
