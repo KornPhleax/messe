@@ -33,10 +33,30 @@ form.onsubmit = e => {
   }
   props["Newslist"] = news;
   
-  const json = JSON.stringify(props);
-  console.log(json);
-  location.href = "danke.html"
+  const body = JSON.stringify(props);
+  console.log(body);
 
+  fetch("https://test.familie-michels.de/add_person", {
+    method: "post",
+    body: body,
+    headers: { "Content-Type": "application/json" }
+    })
+
+  .then(res => res.json())
+  .then(json => {
+    console.log(json)
+    if (json.message == "User was created" ){
+      location.href = "danke.html"
+    }
+    else {
+      alert("Ein Fehler ist aufgetreten, bitte versuchen Sie es erneut")
+    }
+  })
+  .catch(err => alert(err) )
   
 }
+
+  //
+
+
 
