@@ -13,6 +13,7 @@ class Database:
 		self.cache.append(user)
 		with open(self.path, "w") as file:
 			file.write(JSON.dumps(self.cache))
+		return True
 
 	def get_all_items(self):
 		return self.cache

@@ -51,6 +51,24 @@ def authenticate_user():
     else:
         return "Content-Type not supported!", 415
 
+@app.route("/logout")
+def logout():
+    content_type = request.headers.get("Content-Type")
+    if content_type == "application/json":
+        json = request.json
+        status, result = ldap.authenticate_user(json["user"], json["password"])
+        token = redis.create_session(json['user']) if status else None
+        return JSON.dumps(
+            {
+                "result": status,
+                "ldap_result": str(result),
+                "token": token,
+                "ttl": redis.ttl
+            }
+        )
+    else:
+        return "Content-Type not supported!", 415
+
 @app.route("/get_all_users")
 def get_all_users():
     content_type = request.headers.get("Content-Type", default="")
@@ -69,7 +87,15 @@ def get_all_users():
                 "message": 'Content-Type not supported!'
             }),415
 
-
+@app.route("/add_person", methods=["POST"])
+def add_person():
+    content_type = request.headers.get("Content-Type")
+    if content_type == "application/json":
+        json = request.json
+        status = database.add_item(json)
+        return "User was created!", 201
+    else:
+        return "Content-Type not supported!", 415
 
 if __name__ == "__main__":
     app.run()
