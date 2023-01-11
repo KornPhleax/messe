@@ -2,22 +2,22 @@
 # encoding: utf-8
 import json as JSON
 
-class User:
+class Person:
 	def __init__(self, givenname, surname, address, mail, preferences, telefon = None):
 		self.givenname = givenname
 		self.surname = surname
-		self.address = Address(address)
+		self.address = address
 		self.mail = mail
-		self.preferences = Preferences(preferences)
+		self.preferences = preferences
 		self.telefon = telefon
 
 	def __init__(self, json):
 		obj = JSON.loads(json)
 		self.givenname = obj.givenname
 		self.surname = obj.surname
-		self.address = obj.address
+		self.address = Address(obj.address)
 		self.mail = obj.mail
-		self.preferences = obj.preferences
+		self.preferences = Preferences(obj.preferences)
 		self.telefon = obj.telefon
 
 class Address:

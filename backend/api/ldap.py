@@ -12,7 +12,7 @@ class LDAP:
         self.server = Server(server_addr, get_info=ALL, use_ssl = False)
 
     def health(self):
-        return self.authenticate(f"cn={self.bind_user}", self.bind_user_pw)
+        return self.authenticate(f"cn={self.bind_user}", self.bind_user_pw)[0]
 
     def authenticate(self, object, password):
         try:

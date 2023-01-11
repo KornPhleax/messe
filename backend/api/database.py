@@ -1,7 +1,7 @@
 import json as JSON
 
 class Database:
-	def __init__(self, path = "./data.json"):
+	def __init__(self, path = "./data/data.json"):
 		self.path = path
 		try:
 			with open(self.path, 'r') as file:
