@@ -1,5 +1,7 @@
 const { app, BrowserWindow } = require('electron');
 
+// Erstelle neue Electron APP
+
 function createWindow () {
   const window = new BrowserWindow({
 
@@ -13,9 +15,8 @@ function createWindow () {
     }
 
   });
-
+  // Lade Hauptseite
   window.loadFile('index.html');
 
 }
-
 app.whenReady().then(createWindow);

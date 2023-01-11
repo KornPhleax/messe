@@ -1,16 +1,17 @@
 
-  function clickback(target) { // Target refers to the clicked element
+  // Zurück Button
+  function clickback(target) {
     location.href='index.html';
   };
 
+  // Input Felder
   function validate(target) {
 
     const body = {
     "user": document.getElementById("user").value,
     "password": document.getElementById("password").value
     }
-    console.log(JSON.stringify(body))
-    
+
     // Try to login
     fetch("https://test.familie-michels.de/authenticate_user", {
       method: "post",
@@ -21,7 +22,6 @@
     .then(res => res.json())
     .then(json => {
       token = json.token
-      console.log(token)
       if (token !== null) {
         localStorage.setItem("token",token);
         location.href = "table.html";
