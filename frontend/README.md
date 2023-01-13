@@ -42,14 +42,14 @@ Um die Elecetron App zu entwicklen, wird folgendes benötigt:
 
 - NPM
 - NodeJS
+- node-fetch
 - Electron Bibliothek
 
 Klone das Repository und gehe in den Ordner „frontend“. 
 NPM und NodeJS sollten bereits installiert sein. 
-Danach installiere Electron mit „npm install electron“. 
+Danach installiere Electron und Abhängigkeiten mit „npm install“.
 Jetzt muss lediglich das Frontend mit „npm start“ gestartet werden, und die App öffnet sich.
 
-Es werden keine weiteren Bibliotheken benötigt
 
 
 
